@@ -1,0 +1,15 @@
+.Wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Headline {
+    font-size: 5vw;
+    margin: 0;
+}
+
+.ErrorText {
+    font-size: 2.3vw;
+}

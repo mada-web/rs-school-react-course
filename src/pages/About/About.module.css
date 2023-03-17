@@ -1,0 +1,44 @@
+.Wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.MainContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40vw;
+}
+
+.Text {
+    margin: .5vw 1vw;
+    line-height: 1.5;
+    font-size: 1vw;
+    font-weight: 300;
+    font-family: Nunito Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+}
+
+.LeadText {
+    margin-top: 3.5vw;
+    font-size: 1.4vw;
+}
+
+.Headline {
+    margin-top: 3vw;
+    text-align: center;
+    font-size: 1.3vw;
+
+}
+
+.Link {
+    text-decoration: none;
+    color: dodgerblue;
+}
+
+.Link:hover {
+    text-decoration: underline;
+}
+
+.Yellow {
+    background-color: #faea68;
+}
