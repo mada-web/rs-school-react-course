@@ -21,6 +21,7 @@
   },
   "include": [
     "./src/**/*",
-    "styled.d.ts"
+    "styled.d.ts",
+    ".eslintrc.json"
   ]
 }
