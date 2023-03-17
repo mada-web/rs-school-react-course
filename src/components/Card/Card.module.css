@@ -1,0 +1,29 @@
+.Photo {
+    width: 8vw;
+    height: 8vw;
+    margin-bottom: 1vw;
+}
+
+.BlockWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: .5vw;
+    font-size: .8vw;
+}
+
+.CardContainer {
+    display: flex;
+    /*flex-direction: column;*/
+    min-width: 22vw;
+    padding: .8vw;
+    margin: 1.6vw;
+    border-radius: 1.5vw;
+    background-color: white;
+    border: #faea68 solid .3vw;
+}
+
+.UserMainInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+}
