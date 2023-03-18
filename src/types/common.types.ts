@@ -11,5 +11,5 @@ export type IUser = {
   };
   phone: string;
   website: string;
-  photo: string;
+  photo?: string;
 };

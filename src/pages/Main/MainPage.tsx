@@ -36,12 +36,7 @@ class MainPage extends React.Component<IMainPageProps, IMainPageState> {
     return (
       <Container>
         <div className={css.Wrapper}>
-          <Input
-            type="text"
-            value={this.state.input}
-            onChange={this.getInputValue}
-            placeholder="Search..."
-          />
+          <Input value={this.state.input} onChange={this.getInputValue} />
           <div className={css.CardsContainer}>
             {this.props.users.map((user) => (
               <Card user={user} key={user.id} />

@@ -1,21 +1,20 @@
 import React from 'react';
+
 import css from './Input.module.css';
 
-interface MyProps {
-  type: string;
+export interface IInput {
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  placeholder?: string;
 }
 
-class Input extends React.Component<MyProps> {
+class Input extends React.Component<IInput> {
   render() {
     return (
       <input
-        type={this.props.type}
+        type="text"
         value={this.props.value}
         onChange={(event) => this.props.onChange(event)}
-        placeholder={this.props.placeholder}
+        placeholder="Search..."
         className={css.Input}
       />
     );
