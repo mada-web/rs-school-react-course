@@ -1,0 +1,15 @@
+.FormWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: #faea68 .2vw solid;
+    border-radius: 2vw;
+    width: 30vw;
+    padding: 1vw;
+}
+
+.Input {
+    margin: 1vw;
+    padding-top: .5vw;
+    width: 15vw;
+}

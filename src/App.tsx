@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import About from './pages/About/About';
 import MainPage from './pages/Main/MainPage';
+import FormsPage from './pages/Form/FormsPage';
 import NotFoundPage from './pages/NotFound/NotFoundPage';
 import { users } from './constants/products.constant';
 
@@ -16,6 +17,10 @@ function App() {
     {
       path: '/about',
       element: <About />,
+    },
+    {
+      path: '/forms',
+      element: <FormsPage />,
     },
   ]);
 

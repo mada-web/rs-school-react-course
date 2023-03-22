@@ -1,9 +1,9 @@
 import React from 'react';
 import { IUser } from '../../types/common.types';
 
-import css from './Card.module.css';
+import css from './UserCard.module.css';
 
-class Card extends React.Component<{ user: IUser }> {
+class UserCard extends React.Component<{ user: IUser }> {
   render() {
     return (
       <div className={css.CardContainer}>
@@ -60,4 +60,4 @@ class Card extends React.Component<{ user: IUser }> {
   }
 }
 
-export default Card;
+export default UserCard;
