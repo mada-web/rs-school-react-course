@@ -1,15 +1,69 @@
 .FormWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    border: #faea68 .2vw solid;
-    border-radius: 2vw;
     width: 30vw;
     padding: 1vw;
 }
 
+.Fieldset {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5vw;
+}
+
 .Input {
-    margin: 1vw;
-    padding-top: .5vw;
     width: 15vw;
+    margin-left: 1vw;
+    /*height: 2vw;*/
+}
+
+.InputWrapper {
+    display: flex;
+    width: 28vw;
+}
+
+.RadioInput {
+    margin-left: 2vw;
+    align-self: self-end;
+}
+
+.Submit {
+    align-self: center;
+    margin-top: 1.5vw;
+    width: 7vw;
+    margin-left: 10.5vw;
+}
+
+.Label {
+    min-width: 5vw;
+}
+
+.Check {
+    -webkit-appearance: none;
+    height: 18px;
+    width: 18px;
+    margin-left: 1.5vw;
+    transition: 0.40s;
+    background-color: gray;
+    text-align: center;
+    color: white;
+    border-radius: 3px;
+    outline: none;
+}
+
+.Check:checked {
+    background-color: #0E9700;
+}
+
+.Check:before {
+    content: "✖";
+}
+
+.Check:checked:before {
+    content: "✔";
+}
+
+.Check:hover {
+    cursor: pointer;
+    opacity: 0.8;
 }
