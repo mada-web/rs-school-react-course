@@ -3,8 +3,12 @@ import Container from '../../components/Container/Container';
 import Form from '../../components/Form/Form';
 import FormCard, { IFormCard } from '../../components/FormCard/FormCard';
 
+import css from './FormsPage.module.css';
+import Popup from '../../components/PopUp/PopUp';
+
 type IFormsState = {
   cards: IFormCard[];
+  isOpen: boolean;
 };
 
 export class FormsPage extends React.Component<Record<string, never>, IFormsState> {
@@ -13,6 +17,7 @@ export class FormsPage extends React.Component<Record<string, never>, IFormsStat
 
     this.state = {
       cards: [],
+      isOpen: false,
     };
   }
 
@@ -22,13 +27,22 @@ export class FormsPage extends React.Component<Record<string, never>, IFormsStat
     }));
   };
 
+  setIsOpen = (value: boolean) => {
+    this.setState({ isOpen: value });
+  };
+
   render() {
     return (
       <Container>
-        <Form getCard={this.getCard} />
-        {this.state.cards.map((el) => (
-          <FormCard key={el.id} card={el} />
-        ))}
+        <div className={css.ContentWrapper}>
+          <Form getCard={this.getCard} setIsOpen={this.setIsOpen} />
+          <section className={css.CardsContainer}>
+            {this.state.cards.map((el) => (
+              <FormCard key={el.id} card={el} />
+            ))}
+          </section>
+        </div>
+        {this.state.isOpen && <Popup setIsOpen={this.setIsOpen} isOpen={this.state.isOpen} />}
       </Container>
     );
   }
