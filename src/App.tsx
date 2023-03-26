@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import About from './pages/About/About';
 import MainPage from './pages/Main/MainPage';
-import FormsPage from './pages/Form/FormsPage';
+import FormsPage from './pages/Forms/FormsPage';
 import NotFoundPage from './pages/NotFound/NotFoundPage';
 import { users } from './constants/products.constant';
 

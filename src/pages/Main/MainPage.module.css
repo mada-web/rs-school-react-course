@@ -12,9 +12,8 @@
     flex-wrap: wrap;
 }
 
-.Label {
+.InputWrapper {
     align-self: center;
-
 }
 
 .Input {

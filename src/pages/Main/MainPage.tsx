@@ -28,7 +28,7 @@ class MainPage extends React.Component<IMainPageProps, IMainPageState> {
     localStorage.setItem('inputValue', JSON.stringify(this.state.input));
   }
 
-  getInputValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+  getInputValue = (event: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({ input: event.target.value });
   };
 
@@ -38,13 +38,13 @@ class MainPage extends React.Component<IMainPageProps, IMainPageState> {
         <div className={css.Wrapper}>
           <Input
             id="search"
-            type="text"
             name="search"
-            value={this.state.input}
+            type="text"
+            value={this.state.input ?? ''}
             onChange={this.getInputValue}
             className={css.Input}
             placeholder="Search..."
-            labelClassName={css.Label}
+            wrapperClassName={css.InputWrapper}
           />
           <div className={css.CardsContainer}>
             {this.props.users.map((user) => (
