@@ -2,15 +2,13 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { describe, it } from 'vitest';
 
-import FormCard from './FormCard';
+import { FormCard } from './FormCard';
 
 describe('FormCard component', () => {
   const mockCard = {
     id: '123',
     userName: 'User',
     birthDate: '01-01-1990',
-    agreement: 'Accepted',
-    rating: '80',
     preferences: 'Functions',
     technology: 'React',
     fileURL: 'https://example.com/image.jpg',
@@ -21,8 +19,6 @@ describe('FormCard component', () => {
 
     expect(getByText(/User/i)).toBeInTheDocument();
     expect(getByText(/01-01-1990/i)).toBeInTheDocument();
-    expect(getByText(/Accepted/i)).toBeInTheDocument();
-    expect(getByText(/80/i)).toBeInTheDocument();
     expect(getByText(/Functions/i)).toBeInTheDocument();
     expect(getByText(/React/i)).toBeInTheDocument();
     expect(getByAltText('uploadedImage')).toHaveAttribute('src', 'https://example.com/image.jpg');
