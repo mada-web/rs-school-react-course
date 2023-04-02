@@ -1,52 +1,21 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { describe, it, vi } from 'vitest';
 
-import MainPage from './MainPage';
-import { MemoryRouter } from 'react-router-dom';
-
-const mockUsers = [
-  {
-    id: 1,
-    name: 'Leanne',
-    username: 'Mick',
-    email: 'Sincere@april.biz',
-    address: {
-      street: 'Light',
-      suite: 'Apt. 556',
-      city: 'Gwen',
-      zipcode: '92998-3874',
-    },
-    phone: '1-770-736-8031',
-    website: 'hildegard.org',
-  },
-  {
-    id: 2,
-    name: ' Graham',
-    username: 'Bret',
-    email: 'Chop@april.biz',
-    address: {
-      street: 'Dark',
-      suite: 'Apt. 489',
-      city: 'Cron',
-      zipcode: '6546',
-    },
-    phone: '3698256516',
-    website: 'js.org',
-  },
-];
+import { MainPage } from './MainPage';
 
 describe('MainPage', () => {
   it('should render the search input and user cards', () => {
     render(
       <MemoryRouter>
-        <MainPage users={mockUsers} />
+        <MainPage />
       </MemoryRouter>
     );
 
     expect(screen.getByPlaceholderText(/Search.../i)).toBeInTheDocument();
-    expect(screen.getByText('Leanne')).toBeInTheDocument();
-    expect(screen.getByText('Graham')).toBeInTheDocument();
+    expect(screen.getByText('Leanne Graham')).toBeInTheDocument();
+    expect(screen.getByText('Ervin Howell')).toBeInTheDocument();
   });
 
   it('should update the input value when typing in the search input', () => {
@@ -54,7 +23,7 @@ describe('MainPage', () => {
 
     render(
       <MemoryRouter>
-        <MainPage users={mockUsers} />
+        <MainPage />
       </MemoryRouter>
     );
 
@@ -79,7 +48,7 @@ describe('MainPage', () => {
 
     const { unmount } = render(
       <MemoryRouter>
-        <MainPage users={mockUsers} />
+        <MainPage />
       </MemoryRouter>
     );
 

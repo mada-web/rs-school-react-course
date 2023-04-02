@@ -1,9 +1,9 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import { describe, it } from 'vitest';
 
-import NotFoundPage from '../NotFound/NotFoundPage';
-import { MemoryRouter } from 'react-router-dom';
+import { NotFoundPage } from './NotFoundPage';
 
 describe('NotFoundPage', () => {
   it('should render the headline and error text', () => {
