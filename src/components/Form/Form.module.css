@@ -1,54 +1,56 @@
 .FormWrapper {
     display: flex;
     flex-direction: column;
-    width: 30vw;
+    width: 25vw;
     padding: 1vw;
-}
-
-.Fieldset {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1.5vw;
+    margin: 2vw;
+    background-color: #faea68;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .Input {
     width: 15vw;
-    margin-left: 1vw;
-    /*height: 2vw;*/
-}
-
-.InputWrapper {
-    display: flex;
-    width: 28vw;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .RadioInput {
     margin-left: 2vw;
-    align-self: self-end;
+    margin-top: .5vw;
+    align-self: self-start;
 }
 
 .Submit {
     align-self: center;
     margin-top: 1.5vw;
     width: 7vw;
-    margin-left: 10.5vw;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
 }
 
-.Label {
-    min-width: 5vw;
+.Submit:hover {
+    background-color: #3e8e41;
 }
 
 .Check {
     -webkit-appearance: none;
     height: 18px;
     width: 18px;
-    margin-left: 1.5vw;
     transition: 0.40s;
     background-color: gray;
     text-align: center;
     color: white;
     border-radius: 3px;
     outline: none;
+    margin-left: 8vw;
 }
 
 .Check:checked {
@@ -66,4 +68,64 @@
 .Check:hover {
     cursor: pointer;
     opacity: 0.8;
+}
+
+.InputContainer {
+    display: flex;
+    flex-direction: column;
+    height: 3vw;
+}
+
+.InputWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 28vw;
+}
+
+.Label {
+    margin-bottom: .5vw;
+}
+
+input[aria-invalid="true"][type='text'] {
+    border-color: #f51d00ff;
+}
+
+input[aria-invalid="true"][type='date'] {
+    border-color: #f51d00ff;
+}
+
+select[aria-invalid="true"] {
+    border-color: #f51d00ff;
+}
+
+.Error {
+    color: red;
+    font-size: 12px;
+}
+
+.Upload::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.Upload::before {
+    content: 'Browse...';
+    display: inline-block;
+    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 28px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.Upload:hover::before {
+    border-color: black;
+}
+
+.Upload:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }

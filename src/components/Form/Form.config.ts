@@ -1,0 +1,83 @@
+export enum InputFields {
+  UserName = 'userName',
+  BirthDate = 'birthDate',
+  Preferences = 'preferences',
+  Upload = 'upload',
+  Agreement = 'agreement',
+  Rating = 'rating',
+  Technology = 'technology',
+}
+
+export const inputsConfiguration = [
+  {
+    id: 'firstInput',
+    label: 'Enter your name:',
+    name: InputFields.UserName,
+    required: 'Enter your name, please.',
+    minLength: 2,
+    pattern: {
+      value: /^[A-Z][a-z]{1,19}$/,
+      message: 'Enter a valid name, please.',
+    },
+    type: 'text',
+    className: 'Input',
+  },
+  {
+    id: 'secondInput',
+    label: 'Date of birth:',
+    name: InputFields.BirthDate,
+    required: 'Enter your date of birth, please.',
+    type: 'date',
+    className: 'Input',
+  },
+
+  {
+    id: 'thirdInput',
+    label: 'Functions',
+    name: InputFields.Preferences,
+    required: 'Please, choose one.',
+    type: 'radio',
+    value: 'Functions',
+    className: 'RadioInput',
+  },
+  {
+    id: 'fourthInput',
+    label: 'Classes',
+    name: InputFields.Preferences,
+    required: 'Please, choose one.',
+    type: 'radio',
+    value: 'Classes',
+    className: 'RadioInput',
+  },
+  {
+    id: 'fifthInput',
+    label: 'Upload your image:',
+    name: InputFields.Upload,
+    required: 'Please, upload some image.',
+    type: 'file',
+    accept: 'image/*',
+    className: 'Upload',
+  },
+  {
+    id: 'sixthInput',
+    label: 'I consent to processing of my personal data.',
+    name: InputFields.Agreement,
+    required: 'This field is required',
+    type: 'checkbox',
+    className: 'Check',
+  },
+  {
+    id: 'seventhInput',
+    label: 'Choose your favorite technology:',
+    name: InputFields.Technology,
+    required: 'Choose your favorite technology, please.',
+    type: 'select',
+    className: 'Input',
+    options: [
+      { value: '', label: 'Select an option' },
+      { value: 'Vue', label: 'Vue' },
+      { value: 'React', label: 'React' },
+      { value: 'Angular', label: 'Angular' },
+    ],
+  },
+];
