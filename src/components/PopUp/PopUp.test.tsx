@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, act } from '@testing-library/react';
 import { describe, it, vi } from 'vitest';
 
-import Popup from './PopUp';
+import { Popup } from './PopUp';
 
 describe('PopUp', () => {
   const mockSetIsOpen = vi.fn();
