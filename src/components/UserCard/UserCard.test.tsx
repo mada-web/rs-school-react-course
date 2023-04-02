@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, it } from 'vitest';
 
-import Card from './Card';
+import UserCard from './UserCard';
 
 const mockUser = {
   id: 1,
@@ -21,7 +21,7 @@ const mockUser = {
 
 describe('Card component', () => {
   it('should render user information', () => {
-    render(<Card user={mockUser} />);
+    render(<UserCard user={mockUser} />);
 
     expect(screen.getByAltText('Bret photo')).toBeInTheDocument();
     expect(screen.getByText(/Leanne Graham/)).toBeInTheDocument(); // using regular expression matcher

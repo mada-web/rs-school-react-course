@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Container from '../../components/Container/Container';
 import Input from '../../components/Input/Input';
+import UserCard from '../../components/UserCard/UserCard';
+import Container from '../../components/Container/Container';
 import { IUser } from '../../types/common.types';
 
 import css from './MainPage.module.css';
-import Card from '../../components/Card/Card';
 
 type IMainPageProps = {
   users: IUser[];
@@ -28,7 +28,7 @@ class MainPage extends React.Component<IMainPageProps, IMainPageState> {
     localStorage.setItem('inputValue', JSON.stringify(this.state.input));
   }
 
-  getInputValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+  getInputValue = (event: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({ input: event.target.value });
   };
 
@@ -36,10 +36,19 @@ class MainPage extends React.Component<IMainPageProps, IMainPageState> {
     return (
       <Container>
         <div className={css.Wrapper}>
-          <Input value={this.state.input} onChange={this.getInputValue} />
+          <Input
+            id="search"
+            name="search"
+            type="text"
+            value={this.state.input ?? ''}
+            onChange={this.getInputValue}
+            className={css.Input}
+            placeholder="Search..."
+            wrapperClassName={css.InputWrapper}
+          />
           <div className={css.CardsContainer}>
             {this.props.users.map((user) => (
-              <Card user={user} key={user.id} />
+              <UserCard user={user} key={user.id} />
             ))}
           </div>
         </div>

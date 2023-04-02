@@ -1,0 +1,17 @@
+.Popup {
+    display: block;
+    position: absolute;
+    left: 38vw;
+    top: 30vh;
+}
+
+.PopupContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    height: 15vw;
+    background-color: #faea68;
+    border-radius: 1vw;
+}

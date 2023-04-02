@@ -8,7 +8,13 @@ export default defineConfig({
     coverage: {
       all: true,
       reporter: ['text', 'json', 'html'],
-      exclude: [...configDefaults.exclude, 'src/types/**', 'src/constants/**', 'src/vite-env.d.ts'],
+      exclude: [
+        ...configDefaults.exclude,
+        'src/types/**',
+        'src/constants/**',
+        'src/vite-env.d.ts',
+        'src/**/*.test.tsx',
+      ],
     },
     css: {
       modules: {

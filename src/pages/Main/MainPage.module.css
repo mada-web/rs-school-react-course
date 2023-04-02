@@ -11,3 +11,17 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
+.InputWrapper {
+    align-self: center;
+}
+
+.Input {
+    width: 30vw;
+    height: 2.5vw;
+    padding-left: .7vw;
+    font-size: 1.6vw;
+    border-radius: 1vw;
+    border: #faea68 .3vw solid;
+    outline: none;
+}
