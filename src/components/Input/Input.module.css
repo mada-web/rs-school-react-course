@@ -1,0 +1,10 @@
+.Input {
+    width: 30vw;
+    align-self: center;
+    height: 2.5vw;
+    font-size: 1.6vw;
+    border-radius: 1vw;
+    border: #faea68 .3vw solid;
+    outline: none;
+    padding-left: .7vw;
+}

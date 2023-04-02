@@ -1,0 +1,13 @@
+.Wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 2vw;
+}
+
+.CardsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
