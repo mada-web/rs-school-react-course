@@ -2,13 +2,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5vw;
-    border-bottom: .3vw solid #faea68;
+    height: 8vh;
+    border-bottom: .2vw solid #faea68;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 1;
 }
 
 .NavLink {
-    font-size: 2vw;
-    padding: 1vw 1.5vw;
+    font-size: 1.3vw;
+    padding: .6vw 1.2vw;
     margin: 2vw;
     text-decoration: none;
     border-radius: 1.5vw;
