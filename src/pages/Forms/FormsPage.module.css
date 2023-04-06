@@ -1,12 +1,8 @@
 .ContentWrapper {
     display: flex;
-    height: 43.5vw;
-    width: 100vw;
 }
 
 .CardsContainer {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
 }
