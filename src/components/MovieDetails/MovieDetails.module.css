@@ -1,0 +1,76 @@
+.MovieContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+.Poster img {
+    width: 300px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.MovieDetails {
+    flex-grow: 1;
+    margin-left: 20px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.MovieTitle {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.MovieOverview {
+    font-size: 18px;
+    margin: 0 0 20px 0;
+}
+
+.MovieMeta {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.Item {
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 18px;
+    width: 18px;
+    background-color: gray;
+    text-align: center;
+    color: white;
+    border-radius: 3px;
+    transition: 0.40s;
+
+    outline: none;
+}
+
+.Button:before {
+    content: "✖";
+}
+
+Button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transform: scale(1.1);
+}
