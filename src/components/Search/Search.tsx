@@ -1,20 +1,57 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
 import css from './Seacrh.module.css';
+import { IMovie } from 'types';
+import { api_key, baseURL } from '../../constants';
 
-export const Search: FC = () => {
-  const [input, setInput] = useState<string>(
-    JSON.parse(localStorage.getItem('inputValue') as string) ?? ''
+type ISearch = {
+  setSearchResults: (data: IMovie[]) => void;
+};
+
+export const Search: FC<ISearch> = ({ setSearchResults }) => {
+  const [inputValue, setInputValue] = useState<string>(
+    JSON.parse(localStorage.getItem('inputValue') ?? '')
   );
 
-  useEffect(() => {
-    return () => {
-      localStorage.setItem('inputValue', JSON.stringify(input));
-    };
-  });
+  const searchRef = useRef(inputValue);
 
-  const getInputValue = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setInput(event.target.value);
+  const handleSearch = async (): Promise<void> => {
+    try {
+      const response = await fetch(
+        `${baseURL}search/movie?api_key=${api_key}&language=en-US&query=${inputValue}&include_adult=false`
+      );
+
+      const searchResult = await response.json();
+
+      setSearchResults(searchResult.results);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    searchRef.current = inputValue;
+  }, [inputValue]);
+
+  useEffect(() => {
+    if (inputValue) {
+      handleSearch();
+    }
+
+    return () => {
+      localStorage.setItem('inputValue', JSON.stringify(searchRef.current));
+    };
+  }, []);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setInputValue(event.target.value);
+  };
+
+  const handleKeyDown = async (event: React.KeyboardEvent<HTMLInputElement>): Promise<void> => {
+    if (event.code === 'Enter') {
+      await handleSearch();
+      localStorage.setItem('inputValue', JSON.stringify(searchRef.current));
+    }
   };
 
   return (
@@ -23,10 +60,11 @@ export const Search: FC = () => {
         id="search"
         name="search"
         type="text"
-        value={input}
+        value={inputValue}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
         className={css.Input}
         placeholder="Search..."
-        onChange={(event) => getInputValue(event)}
       />
     </div>
   );
