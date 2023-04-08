@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import { Header } from '../Header/';
 
-import css from './Container.module.css';
 import { Footer } from '../Footer';
+
+import css from './Container.module.css';
 
 interface IContainer {
   children: React.ReactNode;

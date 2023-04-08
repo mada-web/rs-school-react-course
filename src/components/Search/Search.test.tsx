@@ -6,14 +6,18 @@ import { Search } from './Search';
 
 describe('Search component', () => {
   it('should render input element with placeholder text', () => {
-    const { getByPlaceholderText } = render(<Search setSearchResults={vi.fn()} />);
+    const { getByPlaceholderText } = render(
+      <Search setInputValue={vi.fn()} handleSearch={vi.fn()} />
+    );
     const inputElement = getByPlaceholderText('Search...');
 
     expect(inputElement).toBeInTheDocument();
   });
 
   it('should update input value when user types', () => {
-    const { getByPlaceholderText } = render(<Search setSearchResults={vi.fn()} />);
+    const { getByPlaceholderText } = render(
+      <Search setInputValue={vi.fn()} handleSearch={vi.fn()} />
+    );
     const inputElement = getByPlaceholderText('Search...');
 
     fireEvent.change(inputElement, { target: { value: 'test' } });
@@ -22,7 +26,9 @@ describe('Search component', () => {
   });
 
   it('should store input value in localStorage on unmount', () => {
-    const { getByPlaceholderText, unmount } = render(<Search setSearchResults={vi.fn()} />);
+    const { getByPlaceholderText, unmount } = render(
+      <Search setInputValue={vi.fn()} handleSearch={vi.fn()} />
+    );
     const inputElement = getByPlaceholderText('Search...');
 
     fireEvent.change(inputElement, { target: { value: 'test' } });
@@ -35,7 +41,9 @@ describe('Search component', () => {
   it('should retrieve input value from localStorage on mount', () => {
     localStorage.setItem('inputValue', JSON.stringify('test'));
 
-    const { getByPlaceholderText } = render(<Search setSearchResults={vi.fn()} />);
+    const { getByPlaceholderText } = render(
+      <Search setInputValue={vi.fn()} handleSearch={vi.fn()} />
+    );
     const inputElement = getByPlaceholderText('Search...');
 
     expect(inputElement).toHaveValue('test');
