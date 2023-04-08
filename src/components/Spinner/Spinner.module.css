@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: inherit;
-    margin-top: 17vw;
+    min-height: 70vh;
+    min-width: 50vw;
 }
 
 .Loader {
