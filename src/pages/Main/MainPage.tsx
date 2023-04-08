@@ -1,78 +1,22 @@
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 
-import { Container } from '../../components/Container';
+import UseGetMovies from './useGetMovies';
+import { Modal } from '../../components/Modal';
 import { Search } from '../../components/Search';
+import { Error } from '../../components/Error/Error';
 import { MovieCard } from '../../components/MovieCard';
+import { Container } from '../../components/Container';
+import { MovieDetails } from '../../components/MovieDetails';
+import { LoadingContainer } from '../../components/LoadingContainer';
+
 import { IMovie } from '../../types';
 
 import css from './MainPage.module.css';
-import { LoadingContainer } from '../../components/LoadingContainer';
-import { Modal } from '../../components/Modal';
-import { api_key, baseURL } from '../../constants';
-import { MovieDetails } from '../../components/MovieDetails';
-import { Error } from '../../components/Error/Error';
 
 export const MainPage: FC = () => {
-  const [movies, setMovies] = useState<IMovie[]>([]);
   const [movieID, setMovieID] = useState<number>(0);
-  const [isError, setIsError] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isShowModal, setIsShowModal] = useState<boolean>(false);
-  const [inputValue, setInputValue] = useState<string>(
-    JSON.parse(localStorage.getItem('inputValue') ?? '')
-  );
-
-  console.log(isError);
-
-  const handleSearch = useCallback(async (): Promise<void> => {
-    try {
-      const response = await fetch(
-        `${baseURL}search/movie?api_key=${api_key}&language=en-US&query=${inputValue}&include_adult=false`
-      );
-
-      if (response.status > 400) {
-        setIsError(true);
-      }
-
-      const searchResult = await response.json();
-
-      setMovies(searchResult.results);
-    } catch (error) {
-      console.log('Error fetching movies:', error);
-    }
-  }, [inputValue]);
-
-  const getInitialMovies = async () => {
-    try {
-      const response = await fetch(`${baseURL}movie/top_rated?api_key=${api_key}&language=en-US`);
-
-      if (response.status > 400) {
-        setIsError(true);
-      }
-
-      const data = await response.json();
-
-      setMovies(data.results);
-    } catch (error) {
-      console.log('Error fetching initial movies:', error);
-    }
-  };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (inputValue) {
-          await handleSearch();
-        } else {
-          await getInitialMovies();
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData().then(() => setIsLoading(false));
-  }, [handleSearch, inputValue]);
+  const { isError, isLoading, handleSearch, movies, setInputValue, setIsError } = UseGetMovies();
 
   const handleModalClose = () => {
     setIsShowModal(false);

@@ -1,11 +1,44 @@
 import React from 'react';
-import { describe, it } from 'vitest';
-import { render } from '@testing-library/react';
+import { describe, it, vi } from 'vitest';
+import { act, render } from '@testing-library/react';
 
 import App from './App';
 
 describe('App', () => {
   it('renders MainPage component for "/" path', () => {
+    localStorage.setItem('inputValue', JSON.stringify('test'));
+
+    act(() => {
+      vi.mock('./pages/Main/useGetMovies', () => ({
+        __esModule: true,
+        default: vi.fn(() => ({
+          isError: false,
+          isLoading: false,
+          handleSearch: vi.fn(),
+          movies: [
+            {
+              poster_path: 'string',
+              adult: true,
+              overview: 'string',
+              release_date: '01-01-2023',
+              genre_ids: [132],
+              id: 789,
+              original_title: 'string',
+              original_language: 'string',
+              title: 'mockMovie',
+              backdrop_path: 'string',
+              popularity: 900,
+              vote_count: 32,
+              video: false,
+              vote_average: 4,
+            },
+          ],
+          setInputValue: vi.fn(),
+          setIsError: vi.fn(),
+        })),
+      }));
+    });
+
     window.history.pushState({}, '', '/');
     window.location.href = '/';
 

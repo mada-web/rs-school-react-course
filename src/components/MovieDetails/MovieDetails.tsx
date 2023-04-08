@@ -17,10 +17,10 @@ export const MovieDetails: FC<IMovieDetails> = ({ id, onClose }): JSX.Element =>
     const getMovieDetails = async () => {
       try {
         const response = await fetch(`${baseURL}movie/${id}?api_key=${api_key}&language=en-US`);
-        const data = await response.json();
+        const data = await response?.json();
 
         setMovie(data);
-        setImg(`https://image.tmdb.org/t/p/original/${data.poster_path}`);
+        setImg(`https://image.tmdb.org/t/p/original/${data?.poster_path}`);
       } catch (error) {
         console.log(error);
       }

@@ -4,8 +4,8 @@ import css from './Spinner.module.css';
 
 export const Spinner = () => {
   return (
-    <div className={css.Container}>
-      <div className={css.Loader}></div>
+    <div className={css.SpinnerContainer}>
+      <div className={css.Spinner} />
     </div>
   );
 };
