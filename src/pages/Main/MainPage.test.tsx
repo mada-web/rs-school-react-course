@@ -71,7 +71,7 @@ global.fetch = vi.fn().mockImplementation((url) => {
 
 describe('MainPage', () => {
   beforeEach(() => {
-    localStorage.setItem('inputValue', JSON.stringify('test'));
+    localStorage.setItem('inputValue', 'test');
   });
 
   afterEach(() => {

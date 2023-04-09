@@ -8,7 +8,7 @@ type ISearch = {
 };
 
 export const Search: FC<ISearch> = ({ setInputValue, handleSearch }) => {
-  const [input, setInput] = useState<string>(JSON.parse(localStorage.getItem('inputValue') ?? ''));
+  const [input, setInput] = useState<string>(localStorage.getItem('inputValue') ?? '');
   const searchRef = useRef(input);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export const Search: FC<ISearch> = ({ setInputValue, handleSearch }) => {
 
   useEffect(() => {
     return () => {
-      localStorage.setItem('inputValue', JSON.stringify(searchRef.current));
+      localStorage.setItem('inputValue', searchRef.current);
     };
   }, []);
 
@@ -28,7 +28,9 @@ export const Search: FC<ISearch> = ({ setInputValue, handleSearch }) => {
   const handleKeyDown = async (event: React.KeyboardEvent<HTMLInputElement>): Promise<void> => {
     if (event.code === 'Enter') {
       await handleSearch();
-      localStorage.setItem('inputValue', JSON.stringify(searchRef.current));
+
+      localStorage.setItem('inputValue', searchRef.current);
+
       setInputValue(input);
     }
   };

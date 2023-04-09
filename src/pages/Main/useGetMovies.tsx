@@ -7,9 +7,7 @@ const UseGetMovies = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [inputValue, setInputValue] = useState<string>(
-    JSON.parse(localStorage.getItem('inputValue') ?? '')
-  );
+  const [inputValue, setInputValue] = useState<string>(localStorage.getItem('inputValue') ?? '');
 
   const handleSearch = useCallback(async (): Promise<void> => {
     try {

@@ -6,7 +6,7 @@ import { Search } from './Search';
 
 describe('Search component', () => {
   it('should render an input field', () => {
-    localStorage.setItem('inputValue', JSON.stringify('test'));
+    localStorage.setItem('inputValue', 'test');
 
     const { getByPlaceholderText } = render(
       <Search setInputValue={vi.fn()} handleSearch={vi.fn()} />
@@ -18,7 +18,7 @@ describe('Search component', () => {
   });
 
   it('should update the input field value on change', () => {
-    localStorage.setItem('inputValue', JSON.stringify('test'));
+    localStorage.setItem('inputValue', 'test');
 
     const setInputValue = vi.fn();
     const handleSearch = vi.fn(() => Promise.resolve());

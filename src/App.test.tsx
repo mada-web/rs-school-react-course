@@ -6,7 +6,7 @@ import App from './App';
 
 describe('App', () => {
   it('renders MainPage component for "/" path', () => {
-    localStorage.setItem('inputValue', JSON.stringify('test'));
+    localStorage.setItem('inputValue', 'test');
 
     act(() => {
       vi.mock('./pages/Main/useGetMovies', () => ({
