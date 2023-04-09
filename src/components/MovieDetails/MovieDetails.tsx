@@ -36,6 +36,8 @@ export const MovieDetails: FC<IMovieDetails> = ({ id, onClose }): JSX.Element =>
   const handleImageError = () => {
     setImg(noImage);
   };
+  const budget = movie?.budget ? `${movie.budget}$` : 'no data available';
+  const runtime = movie?.runtime ? `${movie?.runtime} min` : 'no data available';
 
   return (
     <LoadingContainer isLoading={isLoading}>
@@ -48,9 +50,11 @@ export const MovieDetails: FC<IMovieDetails> = ({ id, onClose }): JSX.Element =>
           <p className={css.Overview}>Film overview: {movie?.overview || 'no data available'} </p>
 
           <ul className={css.movieMeta}>
-            <li className={css.Item}>Vote average: {movie?.vote_average.toFixed(1)}</li>
             <li className={css.Item}>
-              Homepage:{' '}
+              Vote average: {movie?.vote_average.toFixed(1) ?? 'no data available'}
+            </li>
+            <li className={css.Item}>
+              Homepage:
               <a
                 href={movie?.homepage || 'https://www.themoviedb.org/'}
                 target="_blank"
@@ -59,8 +63,8 @@ export const MovieDetails: FC<IMovieDetails> = ({ id, onClose }): JSX.Element =>
                 {movie?.homepage || 'https://www.themoviedb.org/'}
               </a>
             </li>
-            <li className={css.Item}>Budget: {movie?.budget || 'no data available'} $</li>
-            <li className={css.Item}>Runtime: {movie?.runtime || 'no data available'} min</li>
+            <li className={css.Item}>Budget: {budget}</li>
+            <li className={css.Item}>Runtime: {runtime}</li>
             <li className={css.Item}>Released: {releaseDate || 'no data available'}</li>
           </ul>
           <button className={css.Button} onClick={onClose} />

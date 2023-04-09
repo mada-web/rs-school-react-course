@@ -46,7 +46,7 @@ describe('MovieDetails', () => {
     expect(
       screen.getByText(`Vote average: ${mockMovie.vote_average.toFixed(1)}`)
     ).toBeInTheDocument();
-    expect(screen.getByText(`Budget: ${mockMovie.budget} $`)).toBeInTheDocument();
+    expect(screen.getByText(`Budget: ${mockMovie.budget}$`)).toBeInTheDocument();
     expect(screen.getByText(`Runtime: ${mockMovie.runtime} min`)).toBeInTheDocument();
     expect(
       screen.getByText(
