@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, it, vi } from 'vitest';
 
-import Container from './Container';
+import { Container } from './Container';
 
 vi.mock('react-router-dom', () => ({
   NavLink: ({ to, children }: { to: string; children: React.ReactNode }) => (
@@ -10,7 +10,7 @@ vi.mock('react-router-dom', () => ({
   ),
 }));
 
-describe('Container', () => {
+describe.only('Container', () => {
   it('should render the header and the main section', () => {
     render(
       <Container>

@@ -1,60 +1,23 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-import Input from '../../components/Input/Input';
-import UserCard from '../../components/UserCard/UserCard';
-import Container from '../../components/Container/Container';
-import { IUser } from '../../types/common.types';
+import { Container } from '../../components/Container';
+import { Search } from '../../components/Search';
+import { UserCard, users } from '../../components/UserCard';
+import { IUser } from '../../types';
 
 import css from './MainPage.module.css';
 
-type IMainPageProps = {
-  users: IUser[];
-};
-
-type IMainPageState = {
-  input: string;
-};
-
-class MainPage extends React.Component<IMainPageProps, IMainPageState> {
-  constructor(props: IMainPageProps) {
-    super(props);
-
-    this.state = {
-      input: JSON.parse(localStorage.getItem('inputValue') as string),
-    };
-  }
-
-  componentWillUnmount(): void {
-    localStorage.setItem('inputValue', JSON.stringify(this.state.input));
-  }
-
-  getInputValue = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState({ input: event.target.value });
-  };
-
-  render() {
-    return (
-      <Container>
-        <div className={css.Wrapper}>
-          <Input
-            id="search"
-            name="search"
-            type="text"
-            value={this.state.input ?? ''}
-            onChange={this.getInputValue}
-            className={css.Input}
-            placeholder="Search..."
-            wrapperClassName={css.InputWrapper}
-          />
-          <div className={css.CardsContainer}>
-            {this.props.users.map((user) => (
-              <UserCard user={user} key={user.id} />
-            ))}
-          </div>
+export const MainPage: FC = () => {
+  return (
+    <Container>
+      <div className={css.Wrapper}>
+        <Search />
+        <div className={css.CardsContainer}>
+          {users.map((user: IUser) => (
+            <UserCard key={user.id} user={user} />
+          ))}
         </div>
-      </Container>
-    );
-  }
-}
-
-export default MainPage;
+      </div>
+    </Container>
+  );
+};

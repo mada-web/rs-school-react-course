@@ -1,0 +1,30 @@
+.Errors {
+    color: red;
+    height: .5vw;
+    font-size: .8vw;
+    padding-left: 8.5vw;
+    margin-top: -.05vw;
+}
+
+.InputContainer {
+    display: flex;
+    flex-direction: column;
+    height: 3vw;
+}
+
+.Input {
+    width: 30vw;
+    height: 2.5vw;
+    padding-left: .7vw;
+    font-size: 1.6vw;
+    border-radius: 1vw;
+    border: #faea68 .3vw solid;
+    outline: none;
+}
+
+.SearchWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 3vw;
+    align-self: center;
+}

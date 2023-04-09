@@ -13,3 +13,7 @@ export type IUser = {
   website: string;
   photo?: string;
 };
+
+export type IUserCard = {
+  user: IUser;
+};

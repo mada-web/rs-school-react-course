@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, it } from 'vitest';
 
-import UserCard from './UserCard';
+import { UserCard } from './UserCard';
 
 const mockUser = {
   id: 1,

@@ -1,11 +1,11 @@
-import { IUser } from '../types/common.types';
+import { IUser } from 'types';
 
-import user1 from '../assets/user_1.png';
-import user2 from '../assets/user_2.png';
-import user3 from '../assets/user_3.png';
-import user4 from '../assets/user_4.png';
-import user5 from '../assets/user_5.png';
-import user6 from '../assets/user_6.png';
+import user1 from '../../assets/user_1.png';
+import user2 from '../../assets/user_2.png';
+import user3 from '../../assets/user_3.png';
+import user4 from '../../assets/user_4.png';
+import user5 from '../../assets/user_5.png';
+import user6 from '../../assets/user_6.png';
 
 export const users: IUser[] = [
   {

@@ -1,51 +1,32 @@
-import React from 'react';
-import Container from '../../components/Container/Container';
-import Form from '../../components/Form/Form';
-import FormCard, { IFormCard } from '../../components/FormCard/FormCard';
+import React, { FC, useState } from 'react';
+
+import { IFormCard } from '../../types';
+import { Container } from '../../components/Container';
+import { Form } from '../../components/Form';
+import { FormCard } from '../../components/FormCard';
+import { Popup } from '../../components/PopUp';
 
 import css from './FormsPage.module.css';
-import Popup from '../../components/PopUp/PopUp';
 
-type IFormsState = {
-  cards: IFormCard[];
-  isOpen: boolean;
+export const FormsPage: FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [cards, setCards] = useState<IFormCard[]>([]);
+
+  const getCard = (card: IFormCard) => {
+    setCards((prevState: IFormCard[]) => [...prevState, card]);
+  };
+
+  return (
+    <Container>
+      <div className={css.ContentWrapper}>
+        <Form getCard={getCard} setIsOpen={setIsOpen} />
+        <section className={css.CardsContainer}>
+          {cards.map((el) => (
+            <FormCard key={el.id} card={el} />
+          ))}
+        </section>
+      </div>
+      {isOpen && <Popup setIsOpen={setIsOpen} isOpen={isOpen} />}
+    </Container>
+  );
 };
-
-export class FormsPage extends React.Component<Record<string, never>, IFormsState> {
-  constructor(props: Record<string, never>) {
-    super(props);
-
-    this.state = {
-      cards: [],
-      isOpen: false,
-    };
-  }
-
-  getCard = (card: IFormCard) => {
-    this.setState((prevState: IFormsState) => ({
-      cards: [...prevState.cards, card],
-    }));
-  };
-
-  setIsOpen = (value: boolean) => {
-    this.setState({ isOpen: value });
-  };
-
-  render() {
-    return (
-      <Container>
-        <div className={css.ContentWrapper}>
-          <Form getCard={this.getCard} setIsOpen={this.setIsOpen} />
-          <section className={css.CardsContainer}>
-            {this.state.cards.map((el) => (
-              <FormCard key={el.id} card={el} />
-            ))}
-          </section>
-        </div>
-        {this.state.isOpen && <Popup setIsOpen={this.setIsOpen} isOpen={this.state.isOpen} />}
-      </Container>
-    );
-  }
-}
-
-export default FormsPage;

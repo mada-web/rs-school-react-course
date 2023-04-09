@@ -1,7 +1,8 @@
 .Container {
     display: flex;
     flex-direction: column;
-    height: 20vw;
+    height: 17vw;
+    min-width: 15vw;
     border: #faea68 .2vw solid;
     margin: 1vw;
 }
@@ -9,7 +10,7 @@
 .ImageWrapper {
     width: 7vw;
     height: 5vw;
-    margin: 0 1vw;
+    margin: .5vw 3vw;
 }
 
 .Image {
@@ -19,5 +20,5 @@
 }
 
 .Info {
-    margin: .5vw;
+    margin: .6vw;
 }
