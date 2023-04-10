@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 
 import errorIcon from '../../assets/error.svg';
-
 import css from './Error.module.css';
 
 export const Error: FC<{

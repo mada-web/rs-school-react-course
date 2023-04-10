@@ -20,16 +20,10 @@ describe('MovieDetails', () => {
   };
 
   it('should render the movie details', async () => {
-    global.fetch = vi.fn().mockImplementationOnce(
-      () =>
-        new Promise((resolve) => {
-          resolve({
-            json: () =>
-              new Promise((resolve) => {
-                resolve(mockMovie);
-              }),
-          });
-        })
+    global.fetch = vi.fn().mockImplementationOnce(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(mockMovie),
+      })
     );
 
     render(<MovieDetails id={mockMovie.id} onClose={mockOnClose} />);

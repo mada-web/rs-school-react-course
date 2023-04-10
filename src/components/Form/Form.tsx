@@ -51,6 +51,7 @@ export const Form: FC<IForm> = ({ getCard, setIsOpen }) => {
                 className={css[el.className]}
                 aria-invalid={!!errors[el.name]}
                 value={el.value}
+                accept={el.accept}
               />
             )}
 
