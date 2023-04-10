@@ -3,7 +3,7 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import css from './Seacrh.module.css';
 
 type ISearch = {
-  handleSearch: () => void;
+  handleSearch: () => Promise<void>;
   setInputValue: (value: string) => void;
 };
 
@@ -14,12 +14,6 @@ export const Search: FC<ISearch> = ({ setInputValue, handleSearch }) => {
   useEffect(() => {
     searchRef.current = input;
   }, [input]);
-
-  useEffect(() => {
-    return () => {
-      localStorage.setItem('inputValue', searchRef.current);
-    };
-  }, []);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setInput(event.target.value);
