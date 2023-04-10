@@ -14,6 +14,7 @@ export default defineConfig({
         'src/constants/**',
         'src/vite-env.d.ts',
         'src/**/*.test.tsx',
+        'src/**/*.js',
       ],
     },
     css: {

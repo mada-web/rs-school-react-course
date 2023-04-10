@@ -5,12 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run lint:check && tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "lint": "eslint --ext ts,tsx src",
-    "lint:fix": "eslint --fix --ext ts,tsx src"
+    "lint": "eslint ./src --ext .ts,.tsx --ignore-path ./.gitignore --max-warnings=0",
+    "lint:format": "prettier  --loglevel warn --write \"./**/*.{ts,tsx,css,json,md}\" --ignore-path ./.gitignore",
+    "lint:fix": "eslint ./src --ext .ts,.tsx --ignore-path ./.gitignore --fix",
+    "lint:check": "npm run lint && prettier --check . --ignore-path ./.gitignore"
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
