@@ -1,53 +1,52 @@
 .CardWrapper {
-    display: flex;
-    flex-direction: column;
-    /*flex: 0 0 15%;*/
-    width: 15vw;
-    height: 30vw;
-    margin: 1vw;
-    border-radius: .2vw;
-    box-shadow: -1px -1px 21px -6px rgba(66, 68, 90, 1);
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  /*flex: 0 0 15%;*/
+  width: 15vw;
+  height: 30vw;
+  margin: 1vw;
+  border-radius: 0.2vw;
+  box-shadow: -1px -1px 21px -6px rgba(66, 68, 90, 1);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 }
 
-
 .CardWrapper:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .MovieMainInfo {
-    padding: .5vw;
-    display: flex;
-    flex-direction: column;
-    margin-top: auto
+  padding: 0.5vw;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
 }
 
 .Photo {
-    width: 15vw;
-    height: auto;
-    margin-bottom: 1vw;
+  width: 15vw;
+  height: auto;
+  margin-bottom: 1vw;
 }
 
 .Image {
-    width: 15vw;
-    height: auto;
-    margin-bottom: 1vw;
-    opacity: 0;
+  width: 15vw;
+  height: auto;
+  margin-bottom: 1vw;
+  opacity: 0;
 }
 
 .Title {
-    margin-bottom: 5px;
-    font-weight: 700;
-    font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .Rating {
-    margin-bottom: 5px;
-    font-weight: 700;
-    font-size: 12px;
+  margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 12px;
 }
 
 .Release {
-    font-size: 12px;
+  font-size: 12px;
 }

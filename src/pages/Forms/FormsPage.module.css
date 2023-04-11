@@ -1,8 +1,8 @@
 .ContentWrapper {
-    display: flex;
+  display: flex;
 }
 
 .CardsContainer {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }

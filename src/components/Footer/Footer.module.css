@@ -1,14 +1,14 @@
 .Footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #faea68;
-    color: #fff;
-    height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #faea68;
+  color: #fff;
+  height: 6vh;
 }
 
 .Content {
-    color: black;
-    display: flex;
-    justify-content: center;
+  color: black;
+  display: flex;
+  justify-content: center;
 }

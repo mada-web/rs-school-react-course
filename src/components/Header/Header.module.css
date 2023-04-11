@@ -1,36 +1,35 @@
 .Header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 8vh;
-    border-bottom: .2vw solid #faea68;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: white;
-    z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+  border-bottom: 0.2vw solid #faea68;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 1;
 }
 
 .NavLink {
-    font-size: 1.3vw;
-    padding: .6vw 1.2vw;
-    margin: 2vw;
-    text-decoration: none;
-    border-radius: 1.5vw;
-    font-family: sans-serif;
-    color: black;
+  font-size: 1.3vw;
+  padding: 0.6vw 1.2vw;
+  margin: 2vw;
+  text-decoration: none;
+  border-radius: 1.5vw;
+  font-family: sans-serif;
+  color: black;
 }
 
 .activeNavLink {
-    background: #faea68;
+  background: #faea68;
 }
 
 .NavLink:hover {
-    background: #faea68;
+  background: #faea68;
 }
 
 .activeNavLink:hover {
-    background: #faea68;
-
+  background: #faea68;
 }

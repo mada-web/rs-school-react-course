@@ -1,15 +1,15 @@
 .Wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 2vw;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 2vw;
+  overflow-y: auto;
 }
 
 .CardsContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 2vw 5vw 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2vw 5vw 2vw;
 }
