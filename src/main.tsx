@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import App from './App';
-import { setupStore } from './store';
+import { setupStore } from './store/store';
 import { Provider } from 'react-redux';
 import 'normalize.css';
 

@@ -6,6 +6,6 @@ import { reducer } from './store';
 
 const store = configureStore({ reducer });
 
-export const MockProvider: FC<{ children: ReactNode }> = ({ children }) => {
+export const MockStoreProvider: FC<{ children: ReactNode }> = ({ children }) => {
   return <Provider store={store}>{children}</Provider>;
 };

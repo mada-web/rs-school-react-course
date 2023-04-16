@@ -4,16 +4,16 @@ import { render } from '@testing-library/react';
 
 import { FormsPage } from './FormsPage';
 import { MemoryRouter } from 'react-router-dom';
-import { MockProvider } from '../../store/mockProvider';
+import { MockStoreProvider } from '../../store/mockStoreProvider';
 
 describe('FormsPage', () => {
   it('should render the Form component', () => {
     const { getByLabelText } = render(
-      <MockProvider>
+      <MockStoreProvider>
         <MemoryRouter>
           <FormsPage />
         </MemoryRouter>
-      </MockProvider>
+      </MockStoreProvider>
     );
 
     const nameInput = getByLabelText(/Enter your name:/);

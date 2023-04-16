@@ -1,11 +1,11 @@
 import React from 'react';
-import { render, screen, fireEvent, act, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, it, vi } from 'vitest';
 
 import { MainPage } from './MainPage';
 import { api_key, baseURL } from '../../constants';
-import { MockProvider } from '../../store/mockProvider';
+import { MockStoreProvider } from '../../store/mockStoreProvider';
 
 const mockMovie = [
   {
@@ -76,11 +76,11 @@ describe('MainPage', () => {
 
   it('should render the search input and movie cards', () => {
     render(
-      <MockProvider>
+      <MockStoreProvider>
         <MemoryRouter>
           <MainPage />
         </MemoryRouter>
-      </MockProvider>
+      </MockStoreProvider>
     );
 
     const searchInput = screen.getByPlaceholderText('Search...');
@@ -92,11 +92,11 @@ describe('MainPage', () => {
 
   it('should display movie details modal when movie card is clicked', () => {
     render(
-      <MockProvider>
+      <MockStoreProvider>
         <MemoryRouter>
           <MainPage />
         </MemoryRouter>
-      </MockProvider>
+      </MockStoreProvider>
     );
 
     const movieCard = screen.getByText('mockMovie');
@@ -123,11 +123,11 @@ describe('MainPage', () => {
     }));
 
     render(
-      <MockProvider>
+      <MockStoreProvider>
         <MemoryRouter>
           <MainPage />
         </MemoryRouter>
-      </MockProvider>
+      </MockStoreProvider>
     );
 
     waitFor(() => {

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IFormCard } from '../../types';
 
-interface IFormState {
+export interface IFormState {
   cards: IFormCard[];
 }
 

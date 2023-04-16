@@ -1,10 +1,10 @@
 import React from 'react';
 import { describe, it, vi } from 'vitest';
 import { act, render, screen } from '@testing-library/react';
-import { RouterProvider, createMemoryRouter } from 'react-router-dom';
+import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 
 import App, { routerConfig } from './App';
-import { MockProvider } from './store/mockProvider';
+import { MockStoreProvider } from './store/mockStoreProvider';
 
 const getDataForMainPage = () => {
   vi.mock('./hooks/useGetMovies', () => ({
@@ -46,9 +46,9 @@ describe('Routes', () => {
     });
 
     render(
-      <MockProvider>
+      <MockStoreProvider>
         <RouterProvider router={router} />
-      </MockProvider>
+      </MockStoreProvider>
     );
 
     const nameInput = screen.getByPlaceholderText(/Search.../);
@@ -62,9 +62,9 @@ describe('Routes', () => {
     });
 
     render(
-      <MockProvider>
+      <MockStoreProvider>
         <RouterProvider router={router} />
-      </MockProvider>
+      </MockStoreProvider>
     );
 
     expect(screen.getByText(/Everyone can study at RS School/i)).toBeInTheDocument();
@@ -76,9 +76,9 @@ describe('Routes', () => {
     });
 
     render(
-      <MockProvider>
+      <MockStoreProvider>
         <RouterProvider router={router} />
-      </MockProvider>
+      </MockStoreProvider>
     );
 
     const nameInput = screen.getByLabelText(/Enter your name:/);
@@ -92,9 +92,9 @@ describe('Routes', () => {
     });
 
     render(
-      <MockProvider>
+      <MockStoreProvider>
         <RouterProvider router={router} />
-      </MockProvider>
+      </MockStoreProvider>
     );
 
     expect(screen.getByText(/Something went wrong/i)).toBeInTheDocument();
@@ -105,9 +105,9 @@ describe('App', () => {
     act(() => getDataForMainPage);
 
     render(
-      <MockProvider>
+      <MockStoreProvider>
         <App />
-      </MockProvider>
+      </MockStoreProvider>
     );
 
     const nameInput = screen.getByPlaceholderText(/Search.../);
