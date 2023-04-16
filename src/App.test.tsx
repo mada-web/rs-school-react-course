@@ -4,10 +4,10 @@ import { act, render, screen } from '@testing-library/react';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 
 import App, { routerConfig } from './App';
+import { MockProvider } from './store/mockProvider';
 
 const getDataForMainPage = () => {
-  localStorage.setItem('inputValue', 'test');
-  vi.mock('./pages/Main/useGetMovies', () => ({
+  vi.mock('./hooks/useGetMovies', () => ({
     __esModule: true,
     default: vi.fn(() => ({
       isError: false,
@@ -45,7 +45,11 @@ describe('Routes', () => {
       initialEntries: ['/'],
     });
 
-    render(<RouterProvider router={router} />);
+    render(
+      <MockProvider>
+        <RouterProvider router={router} />
+      </MockProvider>
+    );
 
     const nameInput = screen.getByPlaceholderText(/Search.../);
 
@@ -57,7 +61,11 @@ describe('Routes', () => {
       initialEntries: ['/about'],
     });
 
-    render(<RouterProvider router={router} />);
+    render(
+      <MockProvider>
+        <RouterProvider router={router} />
+      </MockProvider>
+    );
 
     expect(screen.getByText(/Everyone can study at RS School/i)).toBeInTheDocument();
   });
@@ -67,7 +75,11 @@ describe('Routes', () => {
       initialEntries: ['/forms'],
     });
 
-    render(<RouterProvider router={router} />);
+    render(
+      <MockProvider>
+        <RouterProvider router={router} />
+      </MockProvider>
+    );
 
     const nameInput = screen.getByLabelText(/Enter your name:/);
 
@@ -79,7 +91,11 @@ describe('Routes', () => {
       initialEntries: ['/unknown'],
     });
 
-    render(<RouterProvider router={router} />);
+    render(
+      <MockProvider>
+        <RouterProvider router={router} />
+      </MockProvider>
+    );
 
     expect(screen.getByText(/Something went wrong/i)).toBeInTheDocument();
   });
@@ -88,7 +104,11 @@ describe('App', () => {
   it('renders App', () => {
     act(() => getDataForMainPage);
 
-    render(<App />);
+    render(
+      <MockProvider>
+        <App />
+      </MockProvider>
+    );
 
     const nameInput = screen.getByPlaceholderText(/Search.../);
 

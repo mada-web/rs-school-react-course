@@ -1,31 +1,37 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 
+import { setSearchQuery } from '../../store/reducers/searchSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import css from './Seacrh.module.css';
 
 type ISearch = {
-  handleSearch: () => Promise<void>;
-  setInputValue: (value: string) => void;
+  handleSearch: () => void;
 };
 
-export const Search: FC<ISearch> = ({ setInputValue, handleSearch }) => {
-  const [input, setInput] = useState<string>(localStorage.getItem('inputValue') ?? '');
+export const Search: FC<ISearch> = ({ handleSearch }) => {
+  const [input, setInput] = useState<string>('');
+
   const searchRef = useRef(input);
+  const dispatch = useAppDispatch();
+  const { query } = useAppSelector((state) => state.search);
 
   useEffect(() => {
     searchRef.current = input;
   }, [input]);
 
+  useEffect(() => {
+    setInput(query);
+  }, [query]);
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setInput(event.target.value);
   };
 
-  const handleKeyDown = async (event: React.KeyboardEvent<HTMLInputElement>): Promise<void> => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.code === 'Enter') {
-      await handleSearch();
+      handleSearch();
 
-      localStorage.setItem('inputValue', searchRef.current);
-
-      setInputValue(input);
+      dispatch(setSearchQuery(searchRef.current));
     }
   };
 
