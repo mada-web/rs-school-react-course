@@ -1,47 +1,97 @@
 import React from 'react';
-import { describe, it } from 'vitest';
-import { render } from '@testing-library/react';
+import { describe, it, vi } from 'vitest';
+import { act, render, screen } from '@testing-library/react';
+import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 
-import App from './App';
+import App, { routerConfig } from './App';
 
-describe('App', () => {
+const getDataForMainPage = () => {
+  localStorage.setItem('inputValue', 'test');
+  vi.mock('./pages/Main/useGetMovies', () => ({
+    __esModule: true,
+    default: vi.fn(() => ({
+      isError: false,
+      isLoading: false,
+      handleSearch: vi.fn(),
+      movies: [
+        {
+          poster_path: 'string',
+          adult: true,
+          overview: 'string',
+          release_date: '01-01-2023',
+          genre_ids: [132],
+          id: 789,
+          original_title: 'string',
+          original_language: 'string',
+          title: 'mockMovie',
+          backdrop_path: 'string',
+          popularity: 900,
+          vote_count: 32,
+          video: false,
+          vote_average: 4,
+        },
+      ],
+      setInputValue: vi.fn(),
+      setIsError: vi.fn(),
+    })),
+  }));
+};
+
+describe('Routes', () => {
   it('renders MainPage component for "/" path', () => {
-    window.history.pushState({}, '', '/');
-    window.location.href = '/';
+    act(() => getDataForMainPage);
 
-    const { getByPlaceholderText } = render(<App />);
+    const router = createMemoryRouter(routerConfig, {
+      initialEntries: ['/'],
+    });
 
-    const nameInput = getByPlaceholderText(/Search.../);
+    render(<RouterProvider router={router} />);
+
+    const nameInput = screen.getByPlaceholderText(/Search.../);
 
     expect(nameInput).toBeInTheDocument();
   });
 
   it('renders About component for "/about" path', () => {
-    window.history.pushState({}, '', '/about');
-    window.location.href = '/about';
+    const router = createMemoryRouter(routerConfig, {
+      initialEntries: ['/about'],
+    });
 
-    const { getByText } = render(<App />);
+    render(<RouterProvider router={router} />);
 
-    expect(getByText(/Everyone can study at RS School/i)).toBeInTheDocument();
+    expect(screen.getByText(/Everyone can study at RS School/i)).toBeInTheDocument();
   });
 
   it('renders FormsPage component for "/forms" path', () => {
-    window.history.pushState({}, '', '/forms');
-    window.location.href = '/forms';
+    const router = createMemoryRouter(routerConfig, {
+      initialEntries: ['/forms'],
+    });
 
-    const { getByLabelText } = render(<App />);
+    render(<RouterProvider router={router} />);
 
-    const nameInput = getByLabelText(/Enter your name:/);
+    const nameInput = screen.getByLabelText(/Enter your name:/);
 
     expect(nameInput).toBeInTheDocument();
   });
 
   it('renders NotFoundPage component for non-existent path', () => {
-    window.history.pushState({}, '', '/some-page');
-    window.location.href = '/some-page';
+    const router = createMemoryRouter(routerConfig, {
+      initialEntries: ['/unknown'],
+    });
 
-    const { getByText } = render(<App />);
+    render(<RouterProvider router={router} />);
 
-    expect(getByText(/Something went wrong/i)).toBeInTheDocument();
+    expect(screen.getByText(/Something went wrong/i)).toBeInTheDocument();
+  });
+});
+describe('App', () => {
+  it('renders App', () => {
+    act(() => getDataForMainPage);
+
+    render(<App />);
+
+    const nameInput = screen.getByPlaceholderText(/Search.../);
+
+    expect(nameInput).toBeInTheDocument();
   });
 });

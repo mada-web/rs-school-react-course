@@ -1,5 +1,5 @@
 import { InputFields } from 'components/Form';
-import { IFormCard } from 'components/FormCard/FormCard';
+import { IFormCard } from './fromCard.types';
 
 export type IForm = {
   getCard: (card: IFormCard) => void;

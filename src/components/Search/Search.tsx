@@ -1,20 +1,32 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
 import css from './Seacrh.module.css';
 
-export const Search: FC = () => {
-  const [input, setInput] = useState<string>(
-    JSON.parse(localStorage.getItem('inputValue') as string) ?? ''
-  );
+type ISearch = {
+  handleSearch: () => Promise<void>;
+  setInputValue: (value: string) => void;
+};
+
+export const Search: FC<ISearch> = ({ setInputValue, handleSearch }) => {
+  const [input, setInput] = useState<string>(localStorage.getItem('inputValue') ?? '');
+  const searchRef = useRef(input);
 
   useEffect(() => {
-    return () => {
-      localStorage.setItem('inputValue', JSON.stringify(input));
-    };
-  });
+    searchRef.current = input;
+  }, [input]);
 
-  const getInputValue = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setInput(event.target.value);
+  };
+
+  const handleKeyDown = async (event: React.KeyboardEvent<HTMLInputElement>): Promise<void> => {
+    if (event.code === 'Enter') {
+      await handleSearch();
+
+      localStorage.setItem('inputValue', searchRef.current);
+
+      setInputValue(input);
+    }
   };
 
   return (
@@ -24,9 +36,10 @@ export const Search: FC = () => {
         name="search"
         type="text"
         value={input}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
         className={css.Input}
         placeholder="Search..."
-        onChange={(event) => getInputValue(event)}
       />
     </div>
   );

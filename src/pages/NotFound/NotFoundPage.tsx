@@ -11,7 +11,7 @@ export const NotFoundPage: FC = () => {
       <div className={css.Wrapper}>
         <h1 className={css.Headline}>404</h1>
         <h2 className={css.ErrorText}>Oops! Something went wrong</h2>
-        <img src={cat} alt="sad-cat-picture" />
+        <img src={cat} alt="sad-cat-picture" className={css.Image} />
       </div>
     </Container>
   );

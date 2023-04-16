@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run lint && tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "lint": "eslint --ext ts,tsx src",
-    "lint:fix": "eslint --fix --ext ts,tsx src"
+    "lint": "eslint ./src --ext .ts,.tsx --ignore-path ./.gitignore --max-warnings=0",
+    "lint:fix": "eslint ./src --ext .ts,.tsx --ignore-path ./.gitignore --fix"
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
