@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run lint && tsc && vite build",
+    "build": "npm run lint && tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
@@ -13,10 +13,13 @@
     "lint:fix": "eslint ./src --ext .ts,.tsx --ignore-path ./.gitignore --fix"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
+    "@types/react-redux": "^7.1.25",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.8",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.9.0"
   },
   "devDependencies": {
