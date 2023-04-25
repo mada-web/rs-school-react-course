@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
+import { movieAPI } from '../services/movieAPI';
 import formSliceReducer from './reducers/formSlice';
 import searchSliceReducer from './reducers/searchSlice';
-import { movieAPI } from '../services/movieAPI';
 
 export type RootState = ReturnType<typeof reducer>;
 export type AppStore = ReturnType<typeof setupStore>;
