@@ -23,7 +23,8 @@
     "./src/**/*",
     "styled.d.ts",
     ".eslintrc.json",
-    "vitest.config.ts"
+    "vitest.config.ts",
+    "node_modules/cypress/types/cypress-global-vars.d.ts"
   ],
   "ts-node": {
     "esm": true,

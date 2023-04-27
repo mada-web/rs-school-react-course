@@ -63,7 +63,9 @@ export const MovieDetails: FC<IMovieDetails> = ({ id, onClose }): JSX.Element =>
                 {movie?.homepage || 'https://www.themoviedb.org/'}
               </a>
             </li>
-            <li className={css.Item}>Budget: {budget}</li>
+            <li className={css.Item} data-testid="movie-budget">
+              Budget: {budget}
+            </li>
             <li className={css.Item}>Runtime: {runtime}</li>
             <li className={css.Item}>Released: {releaseDate || 'no data available'}</li>
           </ul>
