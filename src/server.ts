@@ -1,8 +1,8 @@
+import express from 'express';
+import { createServer } from 'vite';
+import { fileURLToPath } from 'url';
 import { readFile } from 'fs/promises';
 import { dirname, resolve } from 'path';
-import express from 'express';
-import { fileURLToPath } from 'url';
-import { createServer } from 'vite';
 
 const app = express();
 
@@ -30,14 +30,15 @@ app.use('*', async (req, res, next) => {
 
     const { render } = await vite.ssrLoadModule('./src/entry-server.tsx');
 
-    const { pipe } = await render(url, {
+    const { pipe, injection } = await render(url, {
       onShellReady() {
         res.write(htmlStart);
         pipe(res);
       },
 
       onAllReady() {
-        res.write(htmlEnd);
+        const addInjection = htmlEnd.replace('<!--preload-->', injection);
+        res.write(addInjection);
         res.end();
       },
     });
@@ -48,5 +49,5 @@ app.use('*', async (req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server started at http://localhost:${PORT}`);
+  console.log(`Server has been started http://localhost:${PORT}`);
 });

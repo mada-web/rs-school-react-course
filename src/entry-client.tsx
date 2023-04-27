@@ -4,9 +4,17 @@ import { hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
 import Router from './router';
-import { setupStore } from './store/store';
+import { RootState, setupStore } from './store/store';
 
-const store = setupStore();
+declare global {
+  interface Window {
+    __PRELOADED_STATE__?: RootState;
+  }
+}
+
+const store = setupStore((window as Window).__PRELOADED_STATE__);
+
+delete (window as Window).__PRELOADED_STATE__;
 
 hydrateRoot(
   document.getElementById('root') as HTMLElement,

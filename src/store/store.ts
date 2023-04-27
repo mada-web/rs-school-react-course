@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore, PreloadedState } from '@reduxjs/toolkit';
 
 import { movieAPI } from '../services/movieAPI';
 import formSliceReducer from './reducers/formSlice';
@@ -14,9 +14,10 @@ export const reducer = combineReducers({
   [movieAPI.reducerPath]: movieAPI.reducer,
 });
 
-export const setupStore = () => {
+export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
     reducer,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(movieAPI.middleware),
+    preloadedState,
   });
 };

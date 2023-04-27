@@ -9,7 +9,14 @@ import { setupStore } from './store/store';
 const store = setupStore();
 
 export async function render(url: string, opts: RenderToPipeableStreamOptions) {
-  return renderToPipeableStream(
+  const preloadedState = store.getState();
+  const injection = `<script>window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
+    /</g,
+    '\\u003c'
+  )}
+        </script>`;
+
+  const { pipe } = renderToPipeableStream(
     <Provider store={store}>
       <StaticRouter location={url}>
         <Router />
@@ -17,4 +24,5 @@ export async function render(url: string, opts: RenderToPipeableStreamOptions) {
     </Provider>,
     opts
   );
+  return { pipe, injection };
 }
