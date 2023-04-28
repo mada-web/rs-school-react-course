@@ -36,7 +36,7 @@ export const MainPage: FC = () => {
       <div className={css.Wrapper}>
         <Search handleSearch={handleSearch} />
         <LoadingContainer isLoading={isLoading}>
-          <div className={css.CardsContainer}>
+          <div className={css.CardsContainer} data-testid={'cards-container'}>
             {movies?.length ? (
               movies.map((movie: IMovie) => (
                 <MovieCard

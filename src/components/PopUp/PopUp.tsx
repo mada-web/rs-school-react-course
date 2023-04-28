@@ -23,7 +23,7 @@ export const Popup: FC<IPopUpProps> = ({ setIsOpen, isOpen }) => {
       {isOpen && (
         <div className={css.Popup}>
           <div className={css.PopupContent}>
-            <h2>CARD HAS BEEN CREATED</h2>
+            <h2 data-testid="popup">CARD HAS BEEN CREATED</h2>
             <p>Your data successfully saved</p>
           </div>
         </div>

@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { IForm, IFormCard, InputsType } from 'types';
-import { inputsConfiguration, InputFields } from './Form.config';
+import { InputFields, inputsConfiguration } from './Form.config';
 
 import css from './Form.module.css';
 
@@ -32,7 +32,7 @@ export const Form: FC<IForm> = ({ getCard, setIsOpen }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={css.FormWrapper}>
+    <form onSubmit={handleSubmit(onSubmit)} className={css.FormWrapper} data-testid="form">
       {inputsConfiguration.map((el) => (
         <div key={el.id} className={css.InputWrapper}>
           <label htmlFor={el.id} className={css.Label}>
