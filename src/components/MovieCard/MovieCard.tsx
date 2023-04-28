@@ -10,7 +10,7 @@ export const MovieCard: FC<IMovieCard> = ({ movie, setIsShowModal, setMovieID })
   const [img, setImg] = useState(`https://image.tmdb.org/t/p/original/${movie.poster_path}`);
   const [isLoading, setIsLoading] = useState(true);
 
-  const ImgStyle = !isLoading ? css.Photo : css.Image;
+  const ImgStyle = !isLoading ? css.Image : css.NoImage;
   const releaseDate = new Date(movie.release_date).toDateString().replace(/^\S+\s/, '');
 
   const handleImageLoad = () => {

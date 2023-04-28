@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 
-import UseGetMovies from './useGetMovies';
 import { Modal } from '../../components/Modal';
 import { Search } from '../../components/Search';
 import { Error } from '../../components/Error/Error';
@@ -9,14 +8,19 @@ import { Container } from '../../components/Container';
 import { MovieDetails } from '../../components/MovieDetails';
 import { LoadingContainer } from '../../components/LoadingContainer';
 
-import { IMovie } from '../../types';
+import useGetMovies from '../../hooks/useGetMovies';
+import { useAppSelector } from '../../hooks/redux';
 
+import { IMovie } from '../../types';
 import css from './MainPage.module.css';
 
 export const MainPage: FC = () => {
   const [movieID, setMovieID] = useState<number>(0);
   const [isShowModal, setIsShowModal] = useState<boolean>(false);
-  const { isError, isLoading, handleSearch, movies, setInputValue, setIsError } = UseGetMovies();
+
+  const { isError, isLoading, movies, handleSearch, setIsError } = useGetMovies({
+    query: useAppSelector((state) => state.search.query),
+  });
 
   const handleModalClose = () => {
     setIsShowModal(false);
@@ -30,7 +34,7 @@ export const MainPage: FC = () => {
   return (
     <Container>
       <div className={css.Wrapper}>
-        <Search handleSearch={handleSearch} setInputValue={setInputValue} />
+        <Search handleSearch={handleSearch} />
         <LoadingContainer isLoading={isLoading}>
           <div className={css.CardsContainer}>
             {movies?.length ? (
@@ -43,7 +47,7 @@ export const MainPage: FC = () => {
                 />
               ))
             ) : (
-              <p>No data to display</p>
+              <h2>No data to display</h2>
             )}
           </div>
         </LoadingContainer>

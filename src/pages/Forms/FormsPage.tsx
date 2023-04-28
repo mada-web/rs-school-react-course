@@ -1,19 +1,24 @@
 import React, { FC, useState } from 'react';
 
 import { IFormCard } from '../../types';
-import { Container } from '../../components/Container';
 import { Form } from '../../components/Form';
-import { FormCard } from '../../components/FormCard';
 import { Popup } from '../../components/PopUp';
+import { FormCard } from '../../components/FormCard';
+import { Container } from '../../components/Container';
+
+import { addFormCard } from '../../store/reducers/formSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
 import css from './FormsPage.module.css';
 
 export const FormsPage: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [cards, setCards] = useState<IFormCard[]>([]);
+
+  const { cards } = useAppSelector((state) => state.form);
+  const dispatch = useAppDispatch();
 
   const getCard = (card: IFormCard) => {
-    setCards((prevState: IFormCard[]) => [...prevState, card]);
+    dispatch(addFormCard(card));
   };
 
   return (

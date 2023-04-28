@@ -1,24 +1,24 @@
 .Container {
-  display: flex;
-  flex-direction: column;
-  height: 17vw;
-  min-width: 15vw;
-  border: #faea68 0.2vw solid;
-  margin: 1vw;
+    display: flex;
+    flex-direction: column;
+    height: 17vw;
+    min-width: 15vw;
+    border: #faea68 0.2vw solid;
+    margin: 1vw;
 }
 
 .ImageWrapper {
-  width: 7vw;
-  height: 5vw;
-  margin: 0.5vw 3vw;
+    width: 7vw;
+    height: 5vw;
+    margin: 0.5vw 3vw;
 }
 
 .Image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .Info {
-  margin: 0.6vw;
+    margin: 0.6vw;
 }

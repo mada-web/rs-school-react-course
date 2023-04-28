@@ -1,10 +1,11 @@
 import React from 'react';
-import { render, screen, fireEvent, act, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, it, vi } from 'vitest';
 
 import { MainPage } from './MainPage';
 import { api_key, baseURL } from '../../constants';
+import { MockStoreProvider } from '../../store/mockStoreProvider';
 
 const mockMovie = [
   {
@@ -26,7 +27,7 @@ const mockMovie = [
 ];
 
 act(() => {
-  vi.mock('./useGetMovies', () => ({
+  vi.mock('../../hooks/useGetMovies', () => ({
     __esModule: true,
     default: vi.fn(() => ({
       isError: false,
@@ -75,9 +76,11 @@ describe('MainPage', () => {
 
   it('should render the search input and movie cards', () => {
     render(
-      <MemoryRouter>
-        <MainPage />
-      </MemoryRouter>
+      <MockStoreProvider>
+        <MemoryRouter>
+          <MainPage />
+        </MemoryRouter>
+      </MockStoreProvider>
     );
 
     const searchInput = screen.getByPlaceholderText('Search...');
@@ -87,33 +90,13 @@ describe('MainPage', () => {
     expect(movieCard).toBeInTheDocument();
   });
 
-  // it('should call handleSearch when Enter key is pressed on search input', () => {
-  //   const handleSearchMock = vi.fn();
-  //
-  //   render(
-  //     <MemoryRouter>
-  //       <MainPage />
-  //     </MemoryRouter>
-  //   );
-  //
-  //   const inputElement = screen.getByPlaceholderText('Search...') as HTMLInputElement;
-  //
-  //   fireEvent.change(inputElement, { target: { value: 'new value' } });
-  //
-  //   expect(inputElement.value).toBe('new value');
-  //
-  //   fireEvent.keyDown(inputElement, { code: 'Enter' });
-  //
-  //   // waitFor(() => {
-  //   expect(handleSearchMock).toHaveBeenCalledTimes(1);
-  //   // });
-  // });
-
   it('should display movie details modal when movie card is clicked', () => {
     render(
-      <MemoryRouter>
-        <MainPage />
-      </MemoryRouter>
+      <MockStoreProvider>
+        <MemoryRouter>
+          <MainPage />
+        </MemoryRouter>
+      </MockStoreProvider>
     );
 
     const movieCard = screen.getByText('mockMovie');
@@ -140,9 +123,11 @@ describe('MainPage', () => {
     }));
 
     render(
-      <MemoryRouter>
-        <MainPage />
-      </MemoryRouter>
+      <MockStoreProvider>
+        <MemoryRouter>
+          <MainPage />
+        </MemoryRouter>
+      </MockStoreProvider>
     );
 
     waitFor(() => {
@@ -150,3 +135,62 @@ describe('MainPage', () => {
     });
   });
 });
+
+// describe('MainPage component', () => {
+//   it('should render search bar, movie cards, and movie modal correctly', async () => {
+//     render(<MainPage />);
+//
+//     // Check if search bar is rendered correctly
+//     expect(screen.getByPlaceholderText('Search for a movie...')).toBeInTheDocument();
+//
+//     // Check if movie cards are rendered correctly
+//     expect(screen.getByText('Test Movie')).toBeInTheDocument();
+//     expect(screen.getByText('This is a test movie')).toBeInTheDocument();
+//     expect(screen.getByText('2022')).toBeInTheDocument();
+//
+//     // Check if movie modal is not visible initially
+//     expect(screen.queryByText('This is a test movie')).not.toBeVisible();
+//
+//     // Click on a movie card and check if movie modal is visible
+//     userEvent.click(screen.getByText('Test Movie'));
+//
+//     await waitFor(() => {
+//       expect(screen.getByText('This is a test movie')).toBeVisible();
+//     });
+//
+//     // Close movie modal and check if it is not visible
+//     userEvent.click(screen.getByRole('button', { name: /close/i }));
+//
+//     await waitFor(() => {
+//       expect(screen.queryByText('This is a test movie')).not.toBeVisible();
+//     });
+//   });
+//
+//   it('should render error modal correctly', async () => {
+//     // Mock useGetMovies to return error
+//     jest.mock('../../hooks/useGetMovies', () => ({
+//       __esModule: true,
+//       default: jest.fn(() => ({
+//         isError: true,
+//         isLoading: false,
+//         movies: [],
+//         handleSearch: jest.fn(),
+//         setIsError: jest.fn(),
+//       })),
+//     }));
+//
+//     render(<MainPage />);
+//
+//     // Check if error modal is visible
+//     await waitFor(() => {
+//       expect(screen.getByText('Server responded with error')).toBeVisible();
+//     });
+//
+//     // Close error modal and check if it is not visible
+//     userEvent.click(screen.getByRole('button', { name: /close/i }));
+//
+//     await waitFor(() => {
+//       expect(screen.queryByText('Server responded with error')).not.toBeInTheDocument();
+//     });
+//   });
+// });

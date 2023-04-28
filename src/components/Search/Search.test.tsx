@@ -1,15 +1,18 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { describe, it, vi } from 'vitest';
 
 import { Search } from './Search';
+import { MockStoreProvider } from '../../store/mockStoreProvider';
 
 describe('Search component', () => {
-  it('should render an input field', () => {
-    localStorage.setItem('inputValue', 'test');
+  const handleSearch = vi.fn();
 
+  it('should render an input field', () => {
     const { getByPlaceholderText } = render(
-      <Search setInputValue={vi.fn()} handleSearch={vi.fn()} />
+      <MockStoreProvider>
+        <Search handleSearch={handleSearch} />
+      </MockStoreProvider>
     );
 
     const inputElement = getByPlaceholderText('Search...');
@@ -17,33 +20,11 @@ describe('Search component', () => {
     expect(inputElement).toBeInTheDocument();
   });
 
-  it('should update the input field value on change', () => {
-    localStorage.setItem('inputValue', 'test');
-
-    const setInputValue = vi.fn();
-    const handleSearch = vi.fn(() => Promise.resolve());
-
-    const { getByPlaceholderText } = render(
-      <Search setInputValue={setInputValue} handleSearch={handleSearch} />
-    );
-    const inputElement = getByPlaceholderText('Search...') as HTMLInputElement;
-
-    fireEvent.change(inputElement, { target: { value: 'new value' } });
-
-    expect(inputElement.value).toBe('new value');
-
-    fireEvent.keyDown(inputElement, { code: 'Enter' });
-
-    waitFor(() => {
-      expect(setInputValue).toHaveBeenCalled();
-    });
-  });
-
   it('should call handleSearch on Enter key press', () => {
-    const handleSearch = vi.fn(() => Promise.resolve());
-
     const { getByPlaceholderText } = render(
-      <Search setInputValue={vi.fn()} handleSearch={handleSearch} />
+      <MockStoreProvider>
+        <Search handleSearch={handleSearch} />
+      </MockStoreProvider>
     );
 
     const inputElement = getByPlaceholderText('Search...') as HTMLInputElement;
