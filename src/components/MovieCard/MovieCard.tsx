@@ -39,7 +39,6 @@ export const MovieCard: FC<IMovieCard> = ({ movie, setIsShowModal, setMovieID })
       />
       <div className={css.MovieMainInfo}>
         <span className={css.Title}>{movie.title}</span>
-        <span className={css.Rating}>{movie.vote_average} %</span>
         <span className={css.Release}>{releaseDate}</span>
       </div>
     </div>

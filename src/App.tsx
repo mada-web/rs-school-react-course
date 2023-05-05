@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { MainPage, FormsPage, About, NotFoundPage } from './pages';
+import { About, FormPage, MainPage, NotFoundPage } from './pages';
 
 export const routerConfig = [
   {
@@ -15,7 +15,7 @@ export const routerConfig = [
   },
   {
     path: '/forms',
-    element: <FormsPage />,
+    element: <FormPage />,
   },
 ];
 

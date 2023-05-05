@@ -9,9 +9,9 @@ import { Container } from '../../components/Container';
 import { addFormCard } from '../../store/reducers/formSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
-import css from './FormsPage.module.css';
+import css from './FormPage.module.css';
 
-export const FormsPage: FC = () => {
+export const FormPage: FC = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const { cards } = useAppSelector((state) => state.form);

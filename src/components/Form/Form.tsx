@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { IForm, IFormCard, InputsType } from 'types';
-import { inputsConfiguration, InputFields } from './Form.config';
+import { InputFields, inputsConfiguration } from './Form.config';
 
 import css from './Form.module.css';
 
-export const Form: FC<IForm> = ({ getCard, setIsOpen }) => {
+export const Form: FC<IForm> = ({ getCard, setIsOpen }): JSX.Element => {
   const {
     register,
     handleSubmit,

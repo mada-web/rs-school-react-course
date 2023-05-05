@@ -14,7 +14,7 @@ import { useAppSelector } from '../../hooks/redux';
 import { IMovie } from '../../types';
 import css from './MainPage.module.css';
 
-export const MainPage: FC = () => {
+export const MainPage: FC = (): JSX.Element => {
   const [movieID, setMovieID] = useState<number>(0);
   const [isShowModal, setIsShowModal] = useState<boolean>(false);
 

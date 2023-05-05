@@ -1,4 +1,4 @@
 export * from './About';
 export * from './Main';
-export * from './Forms';
+export * from './Form';
 export * from './NotFound';

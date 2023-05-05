@@ -2,7 +2,7 @@ import React from 'react';
 import { describe, it } from 'vitest';
 import { render } from '@testing-library/react';
 
-import { FormsPage } from './FormsPage';
+import { FormPage } from './FormPage';
 import { MemoryRouter } from 'react-router-dom';
 import { MockStoreProvider } from '../../store/mockStoreProvider';
 
@@ -11,7 +11,7 @@ describe('FormsPage', () => {
     const { getByLabelText } = render(
       <MockStoreProvider>
         <MemoryRouter>
-          <FormsPage />
+          <FormPage />
         </MemoryRouter>
       </MockStoreProvider>
     );

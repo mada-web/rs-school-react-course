@@ -8,9 +8,9 @@
     "build": "npm run lint && tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "lint": "eslint ./src --ext .ts,.tsx --ignore-path ./.gitignore --max-warnings=0",
-    "lint:fix": "eslint ./src --ext .ts,.tsx --ignore-path ./.gitignore --fix"
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint ./src --ext .ts,.tsx",
+    "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
