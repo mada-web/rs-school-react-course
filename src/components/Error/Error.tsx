@@ -6,7 +6,7 @@ import css from './Error.module.css';
 export const Error: FC<{
   children: JSX.Element;
   onClose: () => void;
-}> = ({ children, onClose }) => {
+}> = ({ children, onClose }): JSX.Element => {
   return (
     <div className={css.Container}>
       <img src={errorIcon} alt="errorIcon" className={css.Icon} />

@@ -9,7 +9,7 @@ interface IContainer {
   children: React.ReactNode;
 }
 
-export const Container: FC<IContainer> = ({ children }) => {
+export const Container: FC<IContainer> = ({ children }): JSX.Element => {
   return (
     <div className={css.Container}>
       <Header />

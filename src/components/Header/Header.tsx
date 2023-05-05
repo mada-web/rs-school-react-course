@@ -5,7 +5,7 @@ import navLinks from './Header.constants';
 
 import css from './Header.module.css';
 
-export const Header: FC = () => {
+export const Header: FC = (): JSX.Element => {
   return (
     <header className={css.Header}>
       <nav>

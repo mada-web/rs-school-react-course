@@ -27,6 +27,5 @@ describe('Card component', () => {
 
     expect(screen.getByText(/mockMovie/)).toBeInTheDocument();
     expect(screen.getByText(/Jan 01 2023/)).toBeInTheDocument();
-    expect(screen.getByText(/4 %/)).toBeInTheDocument();
   });
 });

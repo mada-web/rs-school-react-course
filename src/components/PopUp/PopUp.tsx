@@ -7,7 +7,7 @@ type IPopUpProps = {
   isOpen: boolean;
 };
 
-export const Popup: FC<IPopUpProps> = ({ setIsOpen, isOpen }) => {
+export const Popup: FC<IPopUpProps> = ({ setIsOpen, isOpen }): JSX.Element => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(false);

@@ -4,7 +4,7 @@ import { IFormCard } from 'types';
 
 import css from './FormCard.module.css';
 
-export const FormCard: FC<{ card: IFormCard }> = ({ card }) => {
+export const FormCard: FC<{ card: IFormCard }> = ({ card }): JSX.Element => {
   return (
     <div className={css.Container}>
       <span className={css.Info}>

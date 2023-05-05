@@ -5,7 +5,7 @@ import cat from '../../assets/cat.png';
 
 import css from './NotFound.module.css';
 
-export const NotFoundPage: FC = () => {
+export const NotFoundPage: FC = (): JSX.Element => {
   return (
     <Container>
       <div className={css.Wrapper}>

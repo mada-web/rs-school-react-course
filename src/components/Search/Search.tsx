@@ -8,7 +8,7 @@ type ISearch = {
   handleSearch: () => void;
 };
 
-export const Search: FC<ISearch> = ({ handleSearch }) => {
+export const Search: FC<ISearch> = ({ handleSearch }): JSX.Element => {
   const [input, setInput] = useState<string>('');
 
   const searchRef = useRef(input);

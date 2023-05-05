@@ -4,7 +4,7 @@ import { Container } from '../../components/Container';
 
 import css from './About.module.css';
 
-export const About: FC = () => {
+export const About: FC = (): JSX.Element => {
   return (
     <Container>
       <div className={css.Wrapper}>

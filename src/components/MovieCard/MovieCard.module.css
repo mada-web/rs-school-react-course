@@ -19,18 +19,17 @@
     display: flex;
     flex-direction: column;
     margin-top: auto;
+    margin-bottom: 1vw;
 }
 
 .Image {
     width: 15vw;
     height: auto;
-    margin-bottom: 1vw;
 }
 
 .NoImage {
     width: 15vw;
     height: auto;
-    margin-bottom: 1vw;
     opacity: 0;
 }
 
