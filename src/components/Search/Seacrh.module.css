@@ -58,7 +58,7 @@
     }
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 415px) {
     .InputContainer {
         height: 20vw;
     }
