@@ -1,22 +1,80 @@
 .InputContainer {
-  display: flex;
-  flex-direction: column;
-  height: 3vw;
+    display: flex;
+    flex-direction: column;
+    height: 3vw;
 }
 
 .SearchWrapper {
-  display: flex;
-  flex-direction: column;
-  height: 3vw;
-  align-self: center;
+    display: flex;
+    flex-direction: column;
+    height: 3vw;
+    align-self: center;
 }
 
 .Input {
-  width: 30vw;
-  height: 2.5vw;
-  padding-left: 0.7vw;
-  font-size: 1vw;
-  border-radius: 1vw;
-  border: #faea68 0.15vw solid;
-  outline: none;
+    width: 30vw;
+    height: 2.5vw;
+    padding-left: 0.7vw;
+    font-size: 1vw;
+    border-radius: 1vw;
+    border: #faea68 0.15vw solid;
+    outline: none;
+}
+
+
+@media only screen and (max-width: 1180px) {
+    .InputContainer {
+        height: 7vw;
+    }
+
+    .SearchWrapper {
+        height: 7vw;
+    }
+
+    .Input {
+        width: 50vw;
+        height: 5vw;
+        font-size: 2vw;
+        border: #faea68 0.3vw solid;
+
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .InputContainer {
+        height: 7vw;
+    }
+
+    .SearchWrapper {
+        height: 7vw;
+    }
+
+    .Input {
+        margin-top: 2vw;
+        width: 50vw;
+        height: 5vw;
+        font-size: 2.5vw;
+        border: #faea68 0.4vw solid;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .InputContainer {
+        height: 20vw;
+    }
+
+    .SearchWrapper {
+        height: 20vw;
+    }
+
+    .Input {
+        margin-top: 5vw;
+        margin-bottom: 3vw;
+        width: 80vw;
+        height: 15vw;
+        font-size: 5vw;
+        border: #faea68 0.4vw solid;
+        border-radius: 4vw;
+
+    }
 }

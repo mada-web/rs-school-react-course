@@ -48,3 +48,76 @@
 .Release {
     font-size: 12px;
 }
+
+@media only screen and (max-width: 1180px) {
+    .CardWrapper {
+        width: 25vw;
+        height: 50vw;
+        margin-bottom: 5vw;
+    }
+
+    .Image {
+        width: 25vw;
+    }
+
+    .NoImage {
+        width: 30vw;
+    }
+
+    .Title {
+        font-size: 20px;
+    }
+
+    .Release {
+        font-size: 16px;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .CardWrapper {
+        width: 30vw;
+        height: 60vw;
+        margin-bottom: 15vw;
+    }
+
+    .Image {
+        width: 30vw;
+    }
+
+    .NoImage {
+        width: 30vw;
+    }
+
+    .Title {
+        font-size: 20px;
+    }
+
+    .Release {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .CardWrapper {
+        width: 70vw;
+        height: 75vh;
+        margin-bottom: 10vw;
+    }
+
+    .Image {
+        width: 70vw;
+    }
+
+    .NoImage {
+        width: 70vw;
+    }
+
+    .Title {
+        font-size: 24px;
+    }
+
+    .Release {
+        font-size: 18px;
+    }
+}

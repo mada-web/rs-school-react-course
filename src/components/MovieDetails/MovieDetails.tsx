@@ -46,10 +46,12 @@ export const MovieDetails: FC<IMovieDetails> = ({ id, onClose }): JSX.Element =>
           <img src={img} onError={handleImageError} alt="movie-image" />
         </div>
         <div className={css.MovieDetails}>
-          <h1 className={css.Title}>{movie?.title || 'no data available'}</h1>
-          <p className={css.Overview}>Film overview: {movie?.overview || 'no data available'} </p>
+          <h1 className={css.MovieTitle}>{movie?.title || 'no data available'}</h1>
+          <p className={css.MovieOverview}>
+            Film overview: {movie?.overview || 'no data available'}{' '}
+          </p>
 
-          <ul className={css.movieMeta}>
+          <ul className={css.MovieMeta}>
             <li className={css.Item}>
               Vote average: {movie?.vote_average.toFixed(1) ?? 'no data available'}
             </li>
