@@ -1,80 +1,129 @@
 .MovieContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
 }
 
 .Poster img {
-  width: 300px;
-  height: auto;
-  max-height: 500px;
-  object-fit: cover;
-  border-radius: 5px;
+    width: 300px;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 .MovieDetails {
-  flex-grow: 1;
-  margin-left: 20px;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: 30vw;
+    flex-grow: 1;
+    margin-left: 20px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 30vw;
 }
 
 .MovieTitle {
-  font-size: 36px;
-  font-weight: bold;
-  margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
 }
 
 .MovieOverview {
-  font-size: 18px;
-  margin: 0 0 20px 0;
+    font-size: 18px;
+    margin: 0 0 20px 0;
 }
 
 .MovieMeta {
-  display: flex;
-  flex-direction: row;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .Item {
-  font-size: 16px;
-  margin-top: 5px;
-  margin-right: 20px;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-right: 20px;
 }
 
 .Button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  height: 18px;
-  width: 18px;
-  background-color: gray;
-  text-align: center;
-  color: white;
-  border-radius: 3px;
-  transition: 0.4s;
-
-  outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 18px;
+    width: 18px;
+    background-color: gray;
+    text-align: center;
+    color: white;
+    border-radius: 3px;
+    transition: 0.4s;
+    outline: none;
 }
 
 .Button:before {
-  content: '✖';
+    content: '✖';
 }
 
 Button:hover {
-  cursor: pointer;
-  opacity: 0.8;
-  transform: scale(1.1);
-  background-color: red;
+    cursor: pointer;
+    opacity: 0.8;
+    transform: scale(1.1);
+    background-color: red;
+}
+
+@media only screen and (max-width: 1180px) {
+    .Button {
+        top: -5px;
+        right: -5px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .Button {
+        top: -5px;
+        right: -5px;
+    }
+}
+
+@media only screen and (max-width: 413px) {
+    .MovieContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Poster img {
+        width: 50vw;
+        max-height: 50vh;
+    }
+
+    .MovieDetails {
+        width: 75vw;
+        position: relative;
+        margin-left: 0;
+    }
+
+    .MovieTitle {
+        margin-top: 2vw;
+        font-size: 25px;
+    }
+
+    .MovieOverview {
+        margin-top: 2vw;
+    }
+
+    .MovieMeta {
+        width: 75vw;
+    }
+
+    .Button {
+        top: -300px;
+        right: 5px;
+    }
 }
