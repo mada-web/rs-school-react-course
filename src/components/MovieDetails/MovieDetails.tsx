@@ -62,7 +62,7 @@ export const MovieDetails: FC<IMovieDetails> = ({ id, onClose }): JSX.Element =>
                 target="_blank"
                 rel="noreferrer"
               >
-                {movie?.homepage || 'https://www.themoviedb.org/'}
+                {movie?.title || 'https://www.themoviedb.org/'}
               </a>
             </li>
             <li className={css.Item}>Budget: {budget}</li>
